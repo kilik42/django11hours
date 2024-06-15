@@ -21,3 +21,11 @@ def home_page_view(request,*args,**kwargs):
     path = request.path
     PageVisit.objects.create(path=request.path)
     return render(request, "home.html", my_context)
+
+def about_page_view(request,*args,**kwargs):
+    my_context = {
+        "my_text": "This is about us",
+        "my_number": 123,
+        "my_list": [123, 456, 789, "Abc"],
+    }
+    return render(request, "about.html", my_context)
